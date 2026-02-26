@@ -1,0 +1,19 @@
+{
+  "name": "chain-langchain-demo",
+  "version": "1.0.0",
+  "description": "LangChain.js 入门文档与实战 Demo",
+  "type": "module",
+  "scripts": {
+    "demo:chat": "node demo/01-basic-chat.js",
+    "demo:stream": "node demo/02-streaming.js",
+    "demo:tools": "node demo/03-simple-tools.js"
+  },
+  "keywords": ["langchain", "langchain.js", "llm", "demo"],
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/core": "^0.3.0",
+    "@langchain/ollama": "^0.2.0",
+    "dotenv": "^16.4.0",
+    "zod": "^3.23.0"
+  }
+}
