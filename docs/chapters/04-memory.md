@@ -71,9 +71,21 @@ const withHistory = new RunnableWithMessageHistory({
 
 在 LangChain.js 中，记忆通常通过 `ChatMessageHistory` 或消息列表实现。
 
-## 四、运行示例
+## 四、与课件 04-LangChain使用之Memory.pdf 对应
+
+| 课件章节 | 内容 | 示例文件 |
+|----------|------|----------|
+| §1 为什么需要 Memory | 模型不记忆，需额外模块 | `01-without-memory.js` |
+| §1.4 不使用 Memory 时 | 用 messages 追加历史 | `02-with-memory.js` |
+| §2.2 ChatMessageHistory | 存储消息、对接 LLM | `03-chat-message-history.js` |
+| §2.3 ConversationBufferMemory | 完整历史、与链结合 | 同上或 RunnableWithMessageHistory |
+
+详见：`langchain-tutorial/chapter04-memory/README.md`。
+
+## 五、运行示例
 
 ```bash
 node langchain-tutorial/chapter04-memory/01-without-memory.js
 node langchain-tutorial/chapter04-memory/02-with-memory.js
+node langchain-tutorial/chapter04-memory/03-chat-message-history.js
 ```

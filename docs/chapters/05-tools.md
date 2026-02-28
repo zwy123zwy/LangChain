@@ -75,9 +75,22 @@ const searchTool = StructuredTool.from({
 4. 将结果以 `ToolMessage` 形式回传给模型
 5. 模型整合后生成最终回答
 
-## 五、运行示例
+## 五、与课件 05-LangChain使用之Tools.pdf 对应
+
+| 课件章节 | 内容 | 示例文件 |
+|----------|------|----------|
+| 工具定义 | name、description、schema | `01-custom-tool.js` |
+| 工具与模型 | bindTools、tool_calls、ToolMessage | `02-tool-with-model.js` |
+| StructuredTool | StructuredTool.from | `03-structured-tool.js` |
+| 多工具 | 多工具绑定、循环执行 | `04-multi-tools.js` |
+
+详见：`langchain-tutorial/chapter05-tools/README.md`。
+
+## 六、运行示例
 
 ```bash
 node langchain-tutorial/chapter05-tools/01-custom-tool.js
 node langchain-tutorial/chapter05-tools/02-tool-with-model.js
+node langchain-tutorial/chapter05-tools/03-structured-tool.js
+node langchain-tutorial/chapter05-tools/04-multi-tools.js
 ```

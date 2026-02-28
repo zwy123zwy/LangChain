@@ -9,7 +9,7 @@
 
 import "dotenv/config";
 import { ChatOllama } from "@langchain/ollama";
-import { HumanMessage, SystemMessage } from "@langchain/core/messages";
+import { HumanMessage, SystemMessage, AIMessage, ChatMessage } from "@langchain/core/messages";
 import { OLLAMA_MODEL, OLLAMA_BASE_URL } from "../../demo/ollama-config.js";
 
 async function main() {
@@ -30,6 +30,16 @@ async function main() {
     new HumanMessage("什么是 REST API？"),
   ]);
   console.log(res2.content);
+  
+  console.log("\n========== 多轮对话 ==========\n");
+  let messages = [
+    new SystemMessage("你是文档助手，回答简短。"),
+    new HumanMessage("什么是龙？"),
+    new HumanMessage("请用中文回答。"),
+  ];
+  const res3 = await model.invoke(messages);
+  console.log(messages);
+  console.log(res3.content);
 }
 
 main().catch(console.error);

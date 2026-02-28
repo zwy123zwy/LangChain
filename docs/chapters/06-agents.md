@@ -91,9 +91,21 @@ const messages = [
 const response = await modelWithTools.invoke(messages);
 ```
 
-## 五、运行示例
+## 五、与课件 06-LangChain使用之Agents.pdf 对应
+
+| 课件章节 | 内容 | 示例文件 |
+|----------|------|----------|
+| §1 Agent 与 Chain 区别 | 动态决策 vs 固定流程 | 见上文概述 |
+| §2 Agent、AgentExecutor | create_react_agent + 执行器 | `02-react-agent.js` |
+| §3 单工具使用 | bindTools、执行、回传 | `01-single-tool.js` |
+| ReAct / Function Call 模式 | 多工具选择、推理+行动 | `02-react-agent.js`、`03-multi-tool-agent.js` |
+
+详见：`langchain-tutorial/chapter06-agents/README.md`。
+
+## 六、运行示例
 
 ```bash
 node langchain-tutorial/chapter06-agents/01-single-tool.js
 node langchain-tutorial/chapter06-agents/02-react-agent.js
+node langchain-tutorial/chapter06-agents/03-multi-tool-agent.js
 ```

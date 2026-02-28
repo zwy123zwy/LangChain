@@ -7,5 +7,4 @@
 export const OLLAMA_MODEL = "qwen3-coder:480b-cloud";
 
 /** Ollama 服务地址，默认本机 11434 */
-export const OLLAMA_BASE_URL =
-  process.env.OLLAMA_BASE_URL || "http://localhost:11434";
+export const OLLAMA_BASE_URL ="http://localhost:11434";

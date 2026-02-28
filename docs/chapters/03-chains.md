@@ -75,9 +75,22 @@ const chain = RunnableSequence.from([
 
 **注意**：LangChain.js 推荐使用 LCEL，传统 `LLMChain` 已逐步被 `pipe` 替代。
 
-## 五、运行示例
+## 五、运行示例（对应课件 03-LangChain使用之Chains.pdf）
+
+| 课件章节 | 示例文件 |
+|----------|----------|
+| LCEL、分步 vs 管道 | `01-lcel-chain.js` |
+| 多步顺序（概括→总结） | `02-sequential-chain.js` |
+| SimpleSequentialChain（剧名→大纲→剧评） | `03-simple-sequential-chain.js` |
+| SequentialChain（翻译→总结→语言→评论） | `04-sequential-chain.js` |
+| 解释→简短总结（input 传参） | `05-simple-sequential-input-key.js` |
 
 ```bash
 node langchain-tutorial/chapter03-chains/01-lcel-chain.js
 node langchain-tutorial/chapter03-chains/02-sequential-chain.js
+node langchain-tutorial/chapter03-chains/03-simple-sequential-chain.js
+node langchain-tutorial/chapter03-chains/04-sequential-chain.js
+node langchain-tutorial/chapter03-chains/05-simple-sequential-input-key.js
 ```
+
+更多说明见 `langchain-tutorial/chapter03-chains/README.md`。

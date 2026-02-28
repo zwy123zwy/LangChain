@@ -1,10 +1,9 @@
 /**
  * 第三章：Chains - LCEL 链式调用
+ * 对应课件：03-LangChain使用之Chains.pdf §1 Chains 基本使用、§1.4 使用举例
  *
- * 参考 langchain/03-代码/LangChain-tutorial/chapter03-chains
- * API 以 js.langchain.com 为准
- *
- * 运行：node langchain-tutorial/chapter03-chains/01-lcel-chain.js
+ * 1. 分步调用：prompt.invoke → model.invoke → parser.invoke
+ * 2. LCEL 管道：chain = prompt | model | parser，统一 invoke
  */
 
 import "dotenv/config";
@@ -17,19 +16,26 @@ async function main() {
   const model = new ChatOllama({
     model: OLLAMA_MODEL,
     baseUrl: OLLAMA_BASE_URL,
-    temperature: 0,
+    temperature: 0.7,
   });
 
-  const prompt = PromptTemplate.fromTemplate(
-    "你是一个数学高手，帮我解决如下的数学问题：{question}"
+  const promptTemplate = PromptTemplate.fromTemplate(
+    "给我讲一个关于{topic}话题的简短笑话"
   );
   const parser = new StringOutputParser();
 
-  const chain = prompt.pipe(model).pipe(parser);
+  console.log("========== 情况1：分步调用（无 chain） ==========\n");
+  const promptValue = await promptTemplate.invoke({ topic: "冰淇淋" });
+  const modelResult = await model.invoke(promptValue);
+  const outPut = await parser.invoke(modelResult);
+  console.log(outPut);
+  console.log("类型:", typeof outPut);
 
-  console.log("========== 单链调用 ==========\n");
-  const result = await chain.invoke({ question: "1 + 2 * 3 = ?" });
+  console.log("\n========== 情况2：使用 LCEL 管道 ==========\n");
+  const chain = promptTemplate.pipe(model).pipe(parser);
+  const result = await chain.invoke({ topic: "ice cream" });
   console.log(result);
+  console.log("类型:", typeof result);
 }
 
 main().catch(console.error);

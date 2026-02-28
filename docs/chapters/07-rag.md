@@ -101,11 +101,25 @@ const chain = RunnableSequence.from([
 
 结合 RAG + 工具（如搜索）+ 记忆，可构建“基于自有文档 + 联网搜索”的智能助手。详见 `langchain-tutorial/chapter07-rag/`。
 
-## 七、运行示例
+## 七、与课件 07-LangChain使用之Retrieval.pdf 对应
+
+| 课件章节 | 内容 | 示例文件 |
+|----------|------|----------|
+| §1.4 Retrieval 流程 | Source→Load→Transform→Embed→Store→Retrieve | 见 §一 RAG 流程概述 |
+| §2 文档加载器 | TextLoader、PyPDF、CSV、JSON | `01-document-loader.js` |
+| Document | page_content、metadata | `01-document-loader.js` |
+| §3 文档拆分 | Text Splitters | `03-text-splitter.js`、`02-rag-chain.js` |
+| §4 Embed、§5 Store、§6 Retrieve | 嵌入、向量存储、检索+生成 | `02-rag-chain.js`、`04-embed-vectorstore.js` |
+
+详见：`langchain-tutorial/chapter07-rag/README.md`。
+
+## 八、运行示例
 
 ```bash
 node langchain-tutorial/chapter07-rag/01-document-loader.js
 node langchain-tutorial/chapter07-rag/02-rag-chain.js
+node langchain-tutorial/chapter07-rag/03-text-splitter.js
+node langchain-tutorial/chapter07-rag/04-embed-vectorstore.js
 ```
 
 **依赖**：需安装 `@langchain/community`、`@langchain/textsplitters` 等，以 [js.langchain.com](https://js.langchain.com) 为准。
