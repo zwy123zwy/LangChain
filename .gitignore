@@ -2,3 +2,11 @@ node_modules/
 .env
 *.log
 .DS_Store
+
+# 大文件 / 二进制资源（超过 GitHub 100MB 限制或 50MB 建议）
+langchain/02-资料/OllamaSetup.exe
+**/OllamaSetup.exe
+# Chroma 向量库持久化数据（体积大，可本地重新生成）
+langchain/03-代码/LangChain-tutorial/chapter07-RAG/asset/chroma-*/
+**/chroma-*/*.bin
+**/chroma-*/*.sqlite3
