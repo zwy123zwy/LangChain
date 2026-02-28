@@ -200,7 +200,25 @@ Demo 使用本地 **Ollama** 与模型 **qwen3-coder:480b-cloud**，无需 API K
 使用 **LangGraph 框架**写图示例：运行 `npm run demo:langgraph`（见 `demo/05-langgraph-simple.js`）。  
 使用 **LangGraph SDK** 连接远程图服务时，请参考官方文档配置 base URL 与认证。
 
-## 六、延伸学习
+## 六、七章教程
+
+参考 `langchain/01-课件` 与 `langchain/03-代码/LangChain-tutorial`，已添加对应七章内容（API 以官网最新为准）：
+
+| 章节 | 文档 | 示例代码 |
+|------|------|----------|
+| 01 概述 | [01-summary.md](chapters/01-summary.md) | `langchain-tutorial/chapter01-summary/` |
+| 02 Model I/O | [02-model-io.md](chapters/02-model-io.md) | `langchain-tutorial/chapter02-model-io/` |
+| 03 Chains | [03-chains.md](chapters/03-chains.md) | `langchain-tutorial/chapter03-chains/` |
+| 04 Memory | [04-memory.md](chapters/04-memory.md) | `langchain-tutorial/chapter04-memory/` |
+| 05 Tools | [05-tools.md](chapters/05-tools.md) | `langchain-tutorial/chapter05-tools/` |
+| 06 Agents | [06-agents.md](chapters/06-agents.md) | `langchain-tutorial/chapter06-agents/` |
+| 07 RAG | [07-rag.md](chapters/07-rag.md) | `langchain-tutorial/chapter07-rag/` |
+
+运行示例：`node langchain-tutorial/chapter01-summary/01-hello-world.js`（详见 `langchain-tutorial/README.md`）
+
+---
+
+## 七、延伸学习
 
 - 官方文档（JS）：[https://js.langchain.com](https://js.langchain.com)
 - 教程：Chat 模型与提示模板、RAG、Agent、LangGraph 等

@@ -9,15 +9,29 @@
     "demo:stream": "node demo/02-streaming.js",
     "demo:tools": "node demo/03-simple-tools.js",
     "demo:filesystem": "node demo/04-filesystem-agent/agent.js",
-    "demo:langgraph": "node demo/05-langgraph-simple.js"
+    "demo:langgraph": "node demo/05-langgraph-simple.js",
+    "tutorial:01": "node langchain-tutorial/chapter01-summary/01-hello-world.js",
+    "tutorial:02": "node langchain-tutorial/chapter02-model-io/01-chat-model.js",
+    "tutorial:03": "node langchain-tutorial/chapter03-chains/01-lcel-chain.js",
+    "tutorial:04": "node langchain-tutorial/chapter04-memory/02-with-memory.js",
+    "tutorial:05": "node langchain-tutorial/chapter05-tools/02-tool-with-model.js",
+    "tutorial:06": "node langchain-tutorial/chapter06-agents/02-react-agent.js",
+    "tutorial:07": "node langchain-tutorial/chapter07-rag/02-rag-chain.js"
   },
-  "keywords": ["langchain", "langchain.js", "llm", "demo"],
+  "keywords": [
+    "langchain",
+    "langchain.js",
+    "llm",
+    "demo"
+  ],
   "license": "MIT",
   "dependencies": {
+    "@langchain/community": "^0.3.59",
     "@langchain/core": "^0.3.0",
     "@langchain/langgraph": "^0.2.0",
     "@langchain/langgraph-sdk": "^0.0.70",
     "@langchain/ollama": "^0.2.0",
+    "@langchain/textsplitters": "^0.1.0",
     "dotenv": "^16.4.0",
     "express": "^4.21.0",
     "zod": "^3.23.0"
