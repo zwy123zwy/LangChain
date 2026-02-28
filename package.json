@@ -4,16 +4,22 @@
   "description": "LangChain.js 入门文档与实战 Demo",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "demo:chat": "node demo/01-basic-chat.js",
     "demo:stream": "node demo/02-streaming.js",
-    "demo:tools": "node demo/03-simple-tools.js"
+    "demo:tools": "node demo/03-simple-tools.js",
+    "demo:filesystem": "node demo/04-filesystem-agent/agent.js",
+    "demo:langgraph": "node demo/05-langgraph-simple.js"
   },
   "keywords": ["langchain", "langchain.js", "llm", "demo"],
   "license": "MIT",
   "dependencies": {
     "@langchain/core": "^0.3.0",
+    "@langchain/langgraph": "^0.2.0",
+    "@langchain/langgraph-sdk": "^0.0.70",
     "@langchain/ollama": "^0.2.0",
     "dotenv": "^16.4.0",
+    "express": "^4.21.0",
     "zod": "^3.23.0"
   }
 }

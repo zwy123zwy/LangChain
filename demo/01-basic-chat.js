@@ -20,6 +20,7 @@ import { StringOutputParser } from "@langchain/core/output_parsers";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { OLLAMA_MODEL, OLLAMA_BASE_URL } from "./ollama-config.js";
 
+// 
 async function main() {
   const model = new ChatOllama({
     model: OLLAMA_MODEL,

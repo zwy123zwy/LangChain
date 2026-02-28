@@ -175,6 +175,10 @@ console.log(result); // 字符串
 | `01-basic-chat.js` | 基础对话 + 提示模板 + LCEL 链 |
 | `02-streaming.js` | 流式输出（打字机效果） |
 | `03-simple-tools.js` | 定义工具并交给模型调用（Agent 雏形） |
+| `04-filesystem-agent/` | **文件系统 Agent**：对沙箱内文件/文件夹读、写、创建、删除 |
+| `05-langgraph-simple.js` | **LangGraph**：StateGraph + MessagesAnnotation 单节点图 |
+
+**怎么选？** 只对话用 01；要看流式用 02；学“模型+工具”用 03；要**操作本机文件**用 **04**；学 **LangGraph 图**用 **05**。详见 `demo/README.md`。
 
 运行前请先：
 
@@ -186,7 +190,17 @@ Demo 使用本地 **Ollama** 与模型 **qwen3-coder:480b-cloud**，无需 API K
 
 ---
 
-## 五、延伸学习
+## 五、LangGraph 相关 SDK
+
+本项目已安装：
+
+- **@langchain/langgraph**：在代码中构建图（StateGraph、Annotation、节点与边）、编译并执行。适合在应用内直接跑图。
+- **@langchain/langgraph-sdk**：连接**已部署的 LangGraph 服务**（如 LangGraph Studio 或自建 LangGraph 服务）。通过 HTTP 与运行在例如 `http://localhost:2024` 的图服务通信，需配置该服务的地址与 API Key（若部署需要）。
+
+使用 **LangGraph 框架**写图示例：运行 `npm run demo:langgraph`（见 `demo/05-langgraph-simple.js`）。  
+使用 **LangGraph SDK** 连接远程图服务时，请参考官方文档配置 base URL 与认证。
+
+## 六、延伸学习
 
 - 官方文档（JS）：[https://js.langchain.com](https://js.langchain.com)
 - 教程：Chat 模型与提示模板、RAG、Agent、LangGraph 等
