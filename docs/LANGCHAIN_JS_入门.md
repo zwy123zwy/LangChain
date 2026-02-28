@@ -178,7 +178,7 @@ console.log(result); // 字符串
 | `04-filesystem-agent/` | **文件系统 Agent**：对沙箱内文件/文件夹读、写、创建、删除 |
 | `05-langgraph-simple.js` | **LangGraph**：StateGraph + MessagesAnnotation 单节点图 |
 
-**怎么选？** 只对话用 01；要看流式用 02；学“模型+工具”用 03；要**操作本机文件**用 **04**；学 **LangGraph 图**用 **05**。详见 `demo/README.md`。
+**怎么选？** 只对话用 01；要看**流式输出**用 02（详见 [流式输出说明](streaming.md)）；学“模型+工具”用 03；要**操作本机文件**用 **04**；学 **LangGraph 图**用 **05**。详见 `demo/README.md`。
 
 运行前请先：
 

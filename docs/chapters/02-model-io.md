@@ -91,9 +91,26 @@ const results = await Promise.all([
 ]);
 ```
 
-## 六、运行示例
+## 六、运行示例（对应课件 02-LangChain使用之Model IO.pdf）
+
+| 课件章节 | 示例文件 |
+|----------|----------|
+| 模型调用、Message、多轮对话 | `01-chat-model.js`、`03-messages-multiturn.js` |
+| invoke / stream / batch | `04-invoke-stream-batch.js` |
+| PromptTemplate 多变量、partial | `05-prompt-template-advanced.js` |
+| ChatPromptTemplate、结合 LLM | `06-chat-prompt-template.js` |
+| 输出解析器 Str / Json / 列表 | `02-prompt-output-parser.js`、`07-output-parsers.js` |
+| 环境变量、Ollama 本地 | `08-env-and-ollama.js` |
 
 ```bash
 node langchain-tutorial/chapter02-model-io/01-chat-model.js
 node langchain-tutorial/chapter02-model-io/02-prompt-output-parser.js
+node langchain-tutorial/chapter02-model-io/03-messages-multiturn.js
+node langchain-tutorial/chapter02-model-io/04-invoke-stream-batch.js
+node langchain-tutorial/chapter02-model-io/05-prompt-template-advanced.js
+node langchain-tutorial/chapter02-model-io/06-chat-prompt-template.js
+node langchain-tutorial/chapter02-model-io/07-output-parsers.js
+node langchain-tutorial/chapter02-model-io/08-env-and-ollama.js
 ```
+
+更多说明见 `langchain-tutorial/chapter02-model-io/README.md`。
