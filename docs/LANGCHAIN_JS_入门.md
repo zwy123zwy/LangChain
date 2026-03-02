@@ -19,6 +19,8 @@
 | **Agent 与工具** | 内置 Agent 抽象，可让 LLM 调用“工具”（如查天气、查数据库），实现自主决策 |
 | **可观测性** | 配合 LangSmith 可追踪请求、调试 Agent 行为、评估输出 |
 
+本项目**完全采用官方生态**（@langchain/core、@langchain/ollama、@langchain/langgraph 等），详见 [官方生态与选型](./官方生态与选型.md)。
+
 ---
 
 ## 二、安装

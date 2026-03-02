@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
+    "langgraph:dev": "cd langgraph-server && npx @langchain/langgraph-cli dev",
+    "stop:2024": "node scripts/stop-port-2024.js",
     "demo:chat": "node demo/01-basic-chat.js",
     "demo:stream": "node demo/02-streaming.js",
     "demo:tools": "node demo/03-simple-tools.js",

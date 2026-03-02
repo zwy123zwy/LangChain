@@ -1,0 +1,22 @@
+{
+  "name": "chain-langgraph-server",
+  "version": "0.1.0",
+  "description": "官方 LangGraph CLI 后端服务（本地 dev / 可部署 Platform）",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "langgraphJs dev",
+    "build": "node --version",
+    "stop:2024": "node ../scripts/stop-port-2024.js"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.0",
+    "@langchain/langgraph": "^0.2.0",
+    "@langchain/ollama": "^0.2.0",
+    "dotenv": "^16.4.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@langchain/langgraph-cli": "^1.1.0"
+  }
+}
