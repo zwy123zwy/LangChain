@@ -15,6 +15,7 @@
     "demo:skills": "node demo/06-agent-skills.js",
     "demo:skills-fs": "node demo/07-agent-skills-fs.js",
     "demo:skills-routed": "node demo/08-agent-skills-routed.js",
+    "demo:agent-filesystem": "node demo/agent-filesystem/agent.js",
     "tutorial:01": "node langchain-tutorial/chapter01-summary/01-hello-world.js",
     "tutorial:02": "node langchain-tutorial/chapter02-model-io/01-chat-model.js",
     "tutorial:03": "node langchain-tutorial/chapter03-chains/01-lcel-chain.js",
@@ -39,6 +40,7 @@
     "@langchain/textsplitters": "^0.1.0",
     "dotenv": "^16.4.0",
     "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
     "zod": "^3.23.0"
   }
 }

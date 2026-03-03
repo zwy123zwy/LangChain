@@ -30,6 +30,22 @@ npm run langgraph:dev
 - **API 文档**：http://localhost:2024/docs  
 - **Studio**：在 [LangSmith Studio](https://smith.langchain.com/studio/) 中连接 `baseUrl=http://127.0.0.1:2024` 进行调试  
 
+### 上传与读取文件（本服务内）
+
+上传与读取文件的逻辑均在本目录（langgraph-server）内：
+
+- **上传**：`lib/upload.js` 提供存储逻辑；运行 **上传服务** 后，前端可向 `POST /upload` 提交 multipart 文件，文件会存到 `uploads/`。
+- **读取**：Agent 工具 `read_file`（`src/agent/tools/read-file.js`）根据**文件路径**（相对 `uploads/`）读取内容并交给大模型。
+
+**启动上传服务**（需在 `langgraph-server` 目录下执行，与 `langgraph dev` 可同时运行）：
+
+```bash
+cd langgraph-server
+npm run upload-server
+```
+
+默认端口 3024，可通过环境变量 `UPLOAD_SERVER_PORT` 修改。前端上传示例：`POST http://localhost:3024/upload`，form-data 字段名 `file`。返回的 `path` 可放入对话中，由 Agent 调用 `read_file` 读取。  
+
 ### 在 Studio 里用 Chat（为什么只能 Graph 不能 Chat）
 
 Studio 有 **Graph（图表）** 和 **Chat（聊天）** 两个标签。若 Chat 用不了，多半是**还没选助理**：
@@ -73,6 +89,40 @@ LANGGRAPH_SCHEMA_RESOLVE_TIMEOUT_MS=120000
 set NODE_OPTIONS=--max-old-space-size=4096
 npx langgraph dev
 ```
+
+### 前端报错 Unsupported content type: file
+
+若前端在使用 `@langchain/langgraph-sdk` 的流式 UI（如 `StreamManager`）时出现 **"Unsupported content type: file"**，是因为当前 SDK 只支持 **OpenAI 风格**的内容块：`text` 和 `image_url`。`@langchain/core` v1 引入了 `file`、`image`、`video` 等类型，流式返回里一旦带上这些，SDK 就会报错。
+
+**处理方式（任选其一）：**
+
+1. **发请求前把消息内容转成 SDK 支持的格式**  
+   提交给 `/runs/stream` 的 `input.messages` 里，不要使用 `type: "file"` / `type: "image"`（v1 格式）。只用：
+   - `{ type: "text", text: "..." }`
+   - `{ type: "image_url", image_url: { url: "..." } }`  
+   若有上传文件，请在自己的前端先把“文件”转成可访问的 URL 或文本描述，再用上述两种之一传给后端。
+
+2. **在流式结果里过滤/转换不支持的内容块**  
+   若错误是**服务端流式返回**里带了 `file`（或其它不支持类型），可在前端对每一条流式消息的 `content` 做一次规范化：只保留 `text` 和 `image_url`，把 `file` / `image` 等转成一段 `text`（例如占位说明或文件名）再交给 SDK 渲染。例如：
+
+```ts
+// 将 content 转为仅含 text / image_url，避免 SDK 报 Unsupported content type: file
+function normalizeContent(content: unknown): Array<{ type: "text"; text: string } | { type: "image_url"; image_url: { url: string } }> {
+  if (typeof content === "string") return [{ type: "text", text: content }];
+  if (!Array.isArray(content)) return [{ type: "text", text: String(content) }];
+  return content.flatMap((block: any) => {
+    if (block?.type === "text" && block.text != null) return [{ type: "text" as const, text: block.text }];
+    if (block?.type === "image_url" && block.image_url?.url) return [{ type: "image_url" as const, image_url: { url: block.image_url.url } }];
+    if (block?.type === "file" || block?.type === "image" || block?.type === "video") return [{ type: "text" as const, text: `[${block.type}]` }];
+    return [];
+  });
+}
+```
+
+在把服务端流式消息交给 `StreamManager` 前，先对 `message.content` 执行 `normalizeContent(message.content)` 再传入，即可避免因 `file` 等类型触发的报错。
+
+3. **关注 SDK 与 core 版本**  
+   可留意 [langgraphjs#1838](https://github.com/langchain-ai/langgraphjs/issues/1838) 等 issue，待官方支持 v1 ContentBlock 后升级 `@langchain/langgraph-sdk`。
 
 ## Agent 模式
 

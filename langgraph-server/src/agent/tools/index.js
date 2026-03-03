@@ -3,8 +3,10 @@
  */
 import { getWeather } from "./get-weather.js";
 import { addNumber } from "./add-number.js";
+import { readFile } from "./read-file.js";
 
 export { getWeather } from "./get-weather.js";
 export { addNumber } from "./add-number.js";
+export { readFile } from "./read-file.js";
 
-export const tools = [getWeather, addNumber];
+export const tools = [getWeather, addNumber, readFile];

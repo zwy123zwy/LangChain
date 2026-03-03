@@ -7,10 +7,13 @@
   "scripts": {
     "dev": "langgraphJs dev",
     "build": "node --version",
-    "stop:2024": "node ../scripts/stop-port-2024.js"
+    "stop:2024": "node ../scripts/stop-port-2024.js",
+    "upload-server": "node scripts/run-upload-server.js"
   },
   "dependencies": {
     "@langchain/core": "^0.3.0",
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
     "@langchain/langgraph": "^0.2.0",
     "@langchain/ollama": "^0.2.0",
     "dotenv": "^16.4.0",

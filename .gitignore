@@ -10,3 +10,6 @@ langchain/02-资料/
 langchain/03-代码/LangChain-tutorial/chapter07-RAG/asset/chroma-*/
 **/chroma-*/*.bin
 **/chroma-*/*.sqlite3
+
+# 文件系统 Agent 长期记忆（按会话落盘，不提交）
+demo/agent-filesystem/memory/*.json
